@@ -1,0 +1,1 @@
+Merge all three demo projects in a single docker-compose project
