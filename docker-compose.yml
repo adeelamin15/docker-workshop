@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  demonodejs:
+    image: learning-node-image
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+
+  dockerdjango:
+    image: learning-django-image
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
+  
+  dockerstaticsite:
+    image: static-site
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+
+  dockerflask:
+    image: learning-flask-image
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000
