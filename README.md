@@ -1,8 +1,8 @@
-## 2.0 Webapps with Docker
+## Webapps with Docker
 Great! So you have now looked at `docker run`, played with a Docker container and also got the hang of some terminology. Armed with all this knowledge, you are now ready to get to the real stuff &#8212; deploying web applications with Docker.
 
-### 2.1 Run a static website in a container
->**Note:** Code for this section is in this repo in the [static-site directory](https://github.com/docker/labs/tree/master/beginner/static-site).
+### 1. Run a static website in a container
+>**Note:** Code for this section is in this repo in the [static-site directory](https://github.com/adeelamin15/docker-workshop/tree/master/static-site).
 
 Let's start by taking baby-steps. First, we'll use Docker to run a static website in a container. The website is based on an existing image. We'll pull a Docker image from Docker Store, run the container, and see how easy it is to set up a web server.
 
@@ -108,7 +108,7 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
-### 2.2 Docker Images
+### 2. Docker Images
 
 In this section, let's dive deeper into what Docker images are. You will build your own image, use that image to run an application locally, and finally, push some of your own images to Docker Cloud.
 
@@ -161,7 +161,7 @@ Another key concept is the idea of _official images_ and _user images_. (Both of
 
 - **User images** are images created and shared by users like you. They build on base images and add additional functionality. Typically these are formatted as `user/image-name`. The `user` value in the image name is your Docker Store user or organization name.
 
-### 2.3 Create your first image
+### 3. Create your first image
 
 >**Note:** The code for this section is in this repository in the [flask-app](https://github.com/docker/labs/tree/master/beginner/flask-app) directory.
 
@@ -177,7 +177,7 @@ We'll do this by first pulling together the components for a random cat picture 
 - [Run your image](#234-run-your-image)
 - [Dockerfile commands summary](#235-dockerfile-commands-summary)
 
-### 2.3.1 Create a Python Flask app that displays random cat pix
+### 3.1 Create a Python Flask app that displays random cat pix
 
 For the purposes of this workshop, we've created a fun little Python Flask app that displays a random cat `.gif` every time it is loaded - because, you know, who doesn't like cats?
 
@@ -267,7 +267,7 @@ Create a directory called `templates` and create an **index.html** file in that 
 </html>
 ```
 
-### 2.3.2 Write a Dockerfile
+### 3.2 Write a Dockerfile
 
 We want to create a Docker image with this web app. As mentioned above, all user images are based on a _base image_. Since our application is written in Python, we will build our own Python image based on [Alpine](https://store.docker.com/images/alpine). We'll do that using a **Dockerfile**.
 
@@ -344,7 +344,7 @@ A [Dockerfile](https://docs.docker.com/engine/reference/builder/) is a text file
   CMD ["python", "/usr/src/app/app.py"]
   ```
 
-### 2.3.3 Build the image
+### 3.3 Build the image
 
 Now that you have your `Dockerfile`, you can build your image. The `docker build` command does the heavy-lifting of creating a docker image from a `Dockerfile`.
 
@@ -420,7 +420,7 @@ Successfully built 2f7357a0805d
 
 If you don't have the `alpine:3.5` image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image (`<YOUR_USERNAME>/myfirstapp`) shows.
 
-### 2.3.4 Run your image
+### 3.4 Run your image
 The next step in this section is to run the image and see if it actually works.
 
 ```bash
@@ -434,7 +434,7 @@ Head over to `http://localhost:8888` and your app should be live. **Note** If yo
 
 Hit the Refresh button in the web browser to see a few more cat images.
 
-### 2.3.4 Push your image
+### 3.4 Push your image
 Now that you've created and tested your image, you can push it to [Docker Cloud](https://cloud.docker.com).
 
 First you have to login to your Docker Cloud account, to do that:
@@ -466,7 +466,7 @@ or
 $ docker rm -f myfirstapp
 ```
 
-### 2.3.5 Dockerfile commands summary
+### 3.5 Dockerfile commands summary
 
 Here's a quick summary of the few basic commands we used in our Dockerfile.
 
@@ -495,4 +495,4 @@ publishing ports by means of the `-p` flag when using `$ docker run`.
 >**Note:** If you want to learn more about Dockerfiles, check out [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
 
 ## Next Steps
-For the next step in the tutorial head over to [3.0 Deploying an app to a Swarm](./votingapp.md)
+For the next steps we'll let you know how to orchestrate multiple Docker containers in one go
