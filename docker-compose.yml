@@ -4,7 +4,7 @@ services:
   demonodejs:
     image: learning-node-image
     build:
-      context: .
+      context: ./demo-nodejs
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
@@ -14,7 +14,7 @@ services:
   dockerdjango:
     image: learning-django-image
     build:
-      context: .
+      context: ./demo-django
       dockerfile: ./Dockerfile
     ports:
       - 8000:8000
@@ -22,7 +22,7 @@ services:
   dockerstaticsite:
     image: static-site
     build:
-      context: .
+      context: ./static-site
       dockerfile: ./Dockerfile
     ports:
       - 80:80
@@ -30,7 +30,7 @@ services:
   dockerflask:
     image: learning-flask-image
     build:
-      context: .
+      context: ./demo-flask
       dockerfile: ./Dockerfile
     ports:
       - 5000:5000
